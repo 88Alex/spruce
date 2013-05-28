@@ -27,7 +27,7 @@ $uses Stdio
 int myInt = 5;
 char myChar = 'B';
 memloc myMemLoc = address myInt;
-@ memloc = 6;
+( 4 @ memloc ) = 6;
 function myFunc a:int b:int returns int does
   output "myFunc";
 	return ( a + b );
