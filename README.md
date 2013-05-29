@@ -74,3 +74,25 @@ Basic class syntax:
 `[class-name] [var-name] = new [class-name] { [class-vars] };`
 
 `if ( [var-name] is [class-name] ) then ... end`
+
+Preprocessor Instructions and Macros
+----------
+
+```
+$uses Stdio
+$let A be 3
+$exists? A
+<-- ... -->
+$else
+<-- ... -->
+$end
+$delete A
+```
+
+Preprocessor Directive Summary:
+
+`$uses [file]`- imports that file. Like `#include` in C/C++.
+`$let [var] be [value]`- defines [var] to be [value]. Like `#define` in C/C++.
+`$exists? [var]`- like `#ifdef` in C/C++.
+`$else` and `$end`- self-explanatory.
+`delete [var]`- deletes [var]. Like `#undef` in C/C++.
