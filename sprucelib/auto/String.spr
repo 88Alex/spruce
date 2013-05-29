@@ -1,12 +1,21 @@
 class String contains
 	private memloc start;
 	public function print returns void does
+		$exists? LITHIUM-OS
+		asm "mov ax,start";
+		asm "call 0x00009000";
+		$end
+		$exists? WINDOWS
 		memloc currLoc = start;
 		char currChar = ( 1 @ currLoc );
 		while ( currChar != 0 ) do
-			display currChar;
-			( currLoc += 1 );
+			asm "mov ah,8";
+			asm "mov al,currChar";
+			asm "int 21h";
+			currLoc += 1;
 			currChar = ( 1 @ currLoc );
 		end
+		$end
+		<-- TODO- SUPPORT FOR MAC and LINUX -->
 	end
 end
