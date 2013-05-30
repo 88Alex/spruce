@@ -29,12 +29,17 @@ char myChar = 'B';
 memloc myMemLoc = address myInt;
 ( 4 @ memloc ) = 6;
 function myFunc a:int b:int returns int does
-  output "myFunc";
+	output "myFunc";
 	return ( a + b );
 end
+int a = myFunc 2 3;
 ```
 
 Function syntax: `function [name] ([param]:[type]) ([param2]:[type2] ...) returns [type] does ... end`
+
+To call functions: `[function-name] parameters;`
+
+YOU DO NOT NEED PARENTHESES FOR FUNCTION CALLS! That's one of the most beautiful things about Spruce.
 
 Operator syntax:
 - 2-parameter: `( [var1] [operator] [var2] )`
@@ -60,7 +65,8 @@ if ( c is Complex ) then
 	<-- ... -->
 end
 SubClass s = ( c as SubClass );
-s.myFunction 3;
+s -> myFunction 3;
+<-- Not dots- arrowheads! -->
 ```
 
 Basic class syntax:
@@ -74,6 +80,12 @@ Basic class syntax:
 `[class-name] [var-name] = new [class-name] { [class-vars] };`
 
 `if ( [var-name] is [class-name] ) then ... end`
+
+By the way, `output "text"` is just syntax sugar for this:
+```
+String anonymous = new String { ( @ firstCharOfString ) };
+anonymous -> print;
+```
 
 Preprocessor Instructions and Macros
 ----------
