@@ -1,21 +1,24 @@
+$exists? String__
+<-- Bail out if String__ is already defined -->
+$else
+$uses Stdio
+$let String__ = 1
 class String contains
 	private memloc start;
 	public function print returns void does
-		$exists? LITHIUM-OS
-		asm "mov ax,start";
-		asm "call 0x00009000";
-		$end
-		$exists? WINDOWS
-		memloc currLoc = start;
-		char currChar = ( 1 @ currLoc );
-		while ( currChar != 0 ) do
-			asm "mov ah,8";
-			asm "mov al,currChar";
-			asm "int 21h";
-			currLoc += 1;
-			currChar = ( 1 @ currLoc );
-		end
+		$exists? LITHIUM
+			asm "mov ax,start";
+			asm "call 0x00009000";
+		$else
+			memloc currLoc = start;
+			char currChar = ( 1 @ currLoc );
+			while ( currChar != 0 ) do
+				output currChar;
+				currLoc += 1;
+				currChar = ( 1 @ currLoc );
+			end
 		$end
 		<-- TODO- SUPPORT FOR MAC and LINUX -->
 	end
 end
+$end
