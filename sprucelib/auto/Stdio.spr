@@ -1,0 +1,37 @@
+function output text:int base:int returns void does
+    if ( base == 10 ) do
+        ...
+    end
+    if ( base == 16 ) do
+        ...
+    end
+    if ( base == 2 ) do
+        ...
+    end
+end
+
+function output text:String returns void does
+    text -> print;
+end
+
+function output letter:char returns void does
+    $exists? WINDOWS
+        asm "mov ah,08";
+        asm "mov al,letter";
+        asm "int 21h";
+    $end
+    $exists? LITHIUM
+        asm "mov al,letter";
+        asm "stosb";
+        asm "mov al,0";
+        asm "stosb";
+        asm "call 0x00009000";
+    $end
+    $exists? BARE_METAL
+        asm "mov al,letter";
+        asm "stosb";
+        asm "mov al,0";
+        asm "stosb";
+        asm "call 0x00100010";
+    $end
+end
