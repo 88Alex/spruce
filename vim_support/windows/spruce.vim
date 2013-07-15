@@ -24,7 +24,7 @@ hi def link	sprBinInteger	Number
 syn match	sprFloat	"\v[0-9]\+(\.[0-9]\+)\?"
 hi def link	sprFloat	Float
 
-syn match	sprCharacter	"\v'.'"
+syn match	sprCharacter	"\v'((.)|(\\.))'"
 hi def link	sprCharacter	Character
 
 syn match	sprString	"\v\".*\""
@@ -49,7 +49,7 @@ syn keyword	sprKeyword	do does else end function getter if in inherits is new
 syn keyword	sprKeyword	return returns setter signal try while
 hi def link	sprKeyword	Keyword
 
-syn keyword	sprPreProc	$uses $let $exists? $else
+syn keyword	sprPreProc	$uses $let $exists? $else $end
 hi def link	sprPreProc	PreProc
 
 syn keyword	sprSpruceType	byte char class decimal int memloc String
