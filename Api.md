@@ -23,7 +23,7 @@ Example usage:
 ```
 for i in 1..10 do
     String func_name = String -> concat "raiseToPower" i;
-    function #func_name = lambda base:int returns int does
+    lambda func_name base:int returns int does
         int result = 1;
         for i in 1..i do
             result *= base;
@@ -37,7 +37,7 @@ end
 
 `output msg`
 
-Outputs the message. The message can be any type. If it is a class other than String, its string equivaleng is printed.
+Outputs the message. The message can be any type. If it is a class other than String, its string equivalent is printed.
 
 ### Input Function
 
