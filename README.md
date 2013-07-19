@@ -5,6 +5,14 @@ A great low-level programming language designed to be both easy to program and e
 
 Spruce combines high-level object-orientation with efficient low-level imperative programming.
 
+What makes it so great?
+=======================
+
+It eliminates some of the biggest pitfalls of C/C++:
+
+- Runtime array-index checking: In Spruce, arrays are objects, and the element-access function throws a runtime exception when given an invalid array index.
+- The Spruce equivalent of `if(x = 0)` gives a compilation error.
+
 Examples
 ========
 
